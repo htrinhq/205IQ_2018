@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+##
+## EPITECH PROJECT, 2019
+## 205IQ_2018
+## File description:
+## 205IQ
+##
+
+from sys import argv
+from utilities import error, usage
+from IQ import IQ_parser
+
+def check_data(argv: [str]) -> [int]:
+    """Checks if argv are valid integers."""
+    data = []
+    for i in range(0, len(argv)):
+        try:
+            data.append(int(argv[i]))
+        except:
+            error('Arguments must be integers.\n')
+    return data
+
+if __name__ == "__main__":
+    if len(argv) == 2 and argv[1] == "-h":
+        usage()
+    elif len(argv) >= 3 and len(argv) <= 5:
+        argv.pop(0)
+        IQ_parser(check_data(argv))
+    else:
+        error('Invalid arguments. Type \"-h\" for more informations.\n')
