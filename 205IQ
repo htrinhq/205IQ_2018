@@ -16,8 +16,10 @@ def check_data(argv: [str]) -> [int]:
     for i in range(0, len(argv)):
         try:
             data.append(int(argv[i]))
-        except:
+        except ValueError:
             error('Arguments must be integers.\n')
+        if data[i] < 0:
+            error('Arguments must be positive integers.\n')
     return data
 
 if __name__ == "__main__":
