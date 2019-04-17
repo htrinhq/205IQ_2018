@@ -18,8 +18,8 @@ def check_data(argv: [str]) -> [int]:
             data.append(int(argv[i]))
         except ValueError:
             error('Arguments must be integers.\n')
-        if data[i] < 0:
-            error('Arguments must be positive integers.\n')
+        if data[i] <= 0: #or (i == 1 and data[1] == 0):
+            error('Arguments must be not null positive integers.\n')
     return data
 
 if __name__ == "__main__":
